@@ -32,7 +32,19 @@ public class UserController {
     }
 
     @PostMapping("/add")
-    public String addUser(User user) {
+    public String addUser(User user, Model model) {
+        /* 課題2 */
+        // 入力に誤りが無いかをチェックする
+        if (user.getName() == null || user.getName() == "" ||
+                user.getAge() < 0 || user.getAge() > 100 ||
+                user.getScore1() < 0 || user.getScore1() > 100 ||
+                user.getScore2() < 0 || user.getScore2() > 100 ||
+                user.getScore3() < 0 || user.getScore3() > 100) {
+            // 入力フォームのオブジェクトをそのままビューに返す
+            model.addAttribute("user", user);
+            return "add-user";
+        }
+    
         userService.addUser(user);
         return "redirect:/users/list";
     }
