@@ -58,14 +58,27 @@ public class UserController {
         // 各ユーザーの総得点
         List<Integer> totalScores = new ArrayList<>();
 
+        List<Integer> scores1 = new ArrayList<>();
+        List<Integer> scores2 = new ArrayList<>();
+        List<Integer> scores3 = new ArrayList<>();
+
+
         for (User user : users) {
             names.add(user.getName());
             // 各ユーザーのテスト1～3の合計値を要素として追加
             totalScores.add(user.getScore1() + user.getScore2() + user.getScore3());
+
+            scores1.add(user.getScore1());
+            scores2.add(user.getScore2());
+            scores3.add(user.getScore3());
         }
 
         model.addAttribute("names", names);
         model.addAttribute("totalScores", totalScores);
+
+        model.addAttribute("scores1", scores1);
+        model.addAttribute("scores2", scores2);
+        model.addAttribute("scores3", scores3);
         return "aggregate";
     }
 }
