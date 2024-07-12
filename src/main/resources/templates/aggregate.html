@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>集計</title>
+</head>
+<body>
+    <h1>集計</h1>
+    <!-- 課題3 -->
+    <h2>総得点</h2>
+    <table>
+        <thead>
+            <tr>
+                <th th:each="name : ${names}" th:text="${name}"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td th:each="totalScore : ${totalScores}" th:text="${totalScore}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

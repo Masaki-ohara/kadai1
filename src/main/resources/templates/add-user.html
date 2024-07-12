@@ -9,9 +9,9 @@
     <form th:action="@{/users/add}" th:object="${user}" th:method="post">
         <p>ユーザー名：<input type="text" th:field="*{name}"></p>
         <p>年齢：<input type="number" th:field="*{age}"></p>
-        <p>テスト1の得点：<input type="number" th:field="*{score1}"></p>
-        <p>テスト2の得点：<input type="number" th:field="*{score2}"></p>
-        <p>テスト3の得点：<input type="number" th:field="*{score3}"></p>
+        <p>数学の得点：<input type="number" th:field="*{score1}"></p>
+        <p>英語の得点：<input type="number" th:field="*{score2}"></p>
+        <p>日本史の得点：<input type="number" th:field="*{score3}"></p>
         <input type="submit" value="追加">
     </form>
 </body>

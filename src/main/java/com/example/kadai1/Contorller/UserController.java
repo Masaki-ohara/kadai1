@@ -1,6 +1,7 @@
 package com.example.kadai1.controller;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -47,5 +48,24 @@ public class UserController {
     
         userService.addUser(user);
         return "redirect:/users/list";
+    }
+
+    @GetMapping("/aggregate")
+    public String aggregate(Model model) {
+        List<User> users = userService.findAllUsers();
+        // 各ユーザーの名前
+        List<String> names = new ArrayList<>();
+        // 各ユーザーの総得点
+        List<Integer> totalScores = new ArrayList<>();
+
+        for (User user : users) {
+            names.add(user.getName());
+            // 各ユーザーのテスト1～3の合計値を要素として追加
+            totalScores.add(user.getScore1() + user.getScore2() + user.getScore3());
+        }
+
+        model.addAttribute("names", names);
+        model.addAttribute("totalScores", totalScores);
+        return "aggregate";
     }
 }
