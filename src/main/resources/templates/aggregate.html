@@ -20,5 +20,22 @@
             </tr>
         </tbody>
     </table>
+    <h2>平均点</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>テスト1</th>
+                <th>テスト2</th>
+                <th>テスト3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td th:text="${#aggregates.avg(scores1)}">テスト1の平均点</td>
+                <td th:text="${#aggregates.avg(scores2)}">テスト2の平均点</td>
+                <td th:text="${#aggregates.avg(scores3)}">テスト3の平均点</td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
